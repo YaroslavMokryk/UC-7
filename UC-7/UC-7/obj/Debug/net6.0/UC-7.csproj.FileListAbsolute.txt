@@ -1,0 +1,15 @@
+C:\.NET_AI\UC-7\UC-7\UC-7\bin\Debug\net6.0\UC-7.exe
+C:\.NET_AI\UC-7\UC-7\UC-7\bin\Debug\net6.0\UC-7.deps.json
+C:\.NET_AI\UC-7\UC-7\UC-7\bin\Debug\net6.0\UC-7.runtimeconfig.json
+C:\.NET_AI\UC-7\UC-7\UC-7\bin\Debug\net6.0\UC-7.dll
+C:\.NET_AI\UC-7\UC-7\UC-7\bin\Debug\net6.0\UC-7.pdb
+C:\.NET_AI\UC-7\UC-7\UC-7\obj\Debug\net6.0\UC-7.csproj.AssemblyReference.cache
+C:\.NET_AI\UC-7\UC-7\UC-7\obj\Debug\net6.0\UC-7.GeneratedMSBuildEditorConfig.editorconfig
+C:\.NET_AI\UC-7\UC-7\UC-7\obj\Debug\net6.0\UC-7.AssemblyInfoInputs.cache
+C:\.NET_AI\UC-7\UC-7\UC-7\obj\Debug\net6.0\UC-7.AssemblyInfo.cs
+C:\.NET_AI\UC-7\UC-7\UC-7\obj\Debug\net6.0\UC-7.csproj.CoreCompileInputs.cache
+C:\.NET_AI\UC-7\UC-7\UC-7\obj\Debug\net6.0\UC-7.dll
+C:\.NET_AI\UC-7\UC-7\UC-7\obj\Debug\net6.0\refint\UC-7.dll
+C:\.NET_AI\UC-7\UC-7\UC-7\obj\Debug\net6.0\UC-7.pdb
+C:\.NET_AI\UC-7\UC-7\UC-7\obj\Debug\net6.0\UC-7.genruntimeconfig.cache
+C:\.NET_AI\UC-7\UC-7\UC-7\obj\Debug\net6.0\ref\UC-7.dll
