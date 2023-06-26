@@ -1,6 +1,4 @@
 ﻿using Xunit;
-using UC_7;
-using System.Collections.Generic;
 
 namespace UC_7.Tests
 {
