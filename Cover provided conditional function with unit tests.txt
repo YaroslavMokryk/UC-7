@@ -1,0 +1,159 @@
+User
+Using C# with the xunit test library, create tests for the following ConvertStudents method in the StudentConverter class:
+
+namespace UC_7
+{
+    public class StudentConverter
+    {
+        public List<Student> ConvertStudents(List<Student> students)
+        {
+            return students.Select(student =>
+            {
+                var result = new Student
+                {
+                    Name = student.Name,
+                    Age = student.Age,
+                    Grade = student.Grade
+                };
+
+                if (student.Grade > 90)
+                {
+                    if (student.Age < 21)
+                    {
+                        result.Exceptional = true;
+                    }
+                    else
+                    {
+                        result.HonorRoll = true;
+                    }
+                }
+                else if (student.Grade > 70)
+                {
+                    result.Passed = true;
+                }
+                else
+                {
+                    result.Passed = false;
+                }
+
+                return result;
+            }).ToList();
+        }
+    }
+}
+
+namespace UC_7
+{
+    public class Student
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public int Grade { get; set; }
+        public bool Exceptional { get; set; }
+        public bool HonorRoll { get; set; }
+        public bool Passed { get; set; }
+
+    }
+}
+
+Cover following test cases
+Positive Test Cases:
+Case 1: High Achiever
+-	Given an array with a student object of age 21 or above and grade above 90, the function should return an object with the additional field HonorRoll = true.
+Case 2: Exceptional Young High Achiever
+-	Given an array with a student object of age less than 21 and grade above 90, the function should return an object with the additional field Exceptional = true.
+Case 3: Passed Student
+-	Given an array with a student object of grade between 71 and 90 (inclusive), the function should return an object with the additional field Passed = true.
+Case 4: Failed Student
+-	Given an array with a student object of grade 70 or less, the function should return an object with the additional field Passed = false.
+Negative Test Cases:
+Case 1: Empty Array
+-	Given an empty array, the function should return an empty array.
+Case 2: Not an Array 
+-	Given a null as an input the function should throw an error.
+
+ChatGPT
+In order to create the test cases, you need to add the Xunit NuGet package to your project. Xunit is a free, open source, community-focused unit testing tool for the .NET Framework. Here are the test cases you requested:
+
+csharp
+Copy code
+using Xunit;
+using UC_7;
+using System.Collections.Generic;
+
+namespace UC_7.Tests
+{
+    public class StudentConverterTests
+    {
+        private StudentConverter converter = new StudentConverter();
+
+        [Fact]
+        public void ConvertStudents_HighAchiever_HonorRollIsTrue()
+        {
+            var students = new List<Student>
+            {
+                new Student { Name = "Alice", Age = 21, Grade = 91 }
+            };
+
+            var result = converter.ConvertStudents(students);
+
+            Assert.True(result[0].HonorRoll);
+        }
+
+        [Fact]
+        public void ConvertStudents_ExceptionalYoungHighAchiever_ExceptionalIsTrue()
+        {
+            var students = new List<Student>
+            {
+                new Student { Name = "Bob", Age = 20, Grade = 91 }
+            };
+
+            var result = converter.ConvertStudents(students);
+
+            Assert.True(result[0].Exceptional);
+        }
+
+        [Fact]
+        public void ConvertStudents_PassedStudent_PassedIsTrue()
+        {
+            var students = new List<Student>
+            {
+                new Student { Name = "Charlie", Age = 22, Grade = 75 }
+            };
+
+            var result = converter.ConvertStudents(students);
+
+            Assert.True(result[0].Passed);
+        }
+
+        [Fact]
+        public void ConvertStudents_FailedStudent_PassedIsFalse()
+        {
+            var students = new List<Student>
+            {
+                new Student { Name = "Dave", Age = 23, Grade = 70 }
+            };
+
+            var result = converter.ConvertStudents(students);
+
+            Assert.False(result[0].Passed);
+        }
+
+        [Fact]
+        public void ConvertStudents_EmptyArray_ReturnsEmptyArray()
+        {
+            var students = new List<Student>();
+
+            var result = converter.ConvertStudents(students);
+
+            Assert.Empty(result);
+        }
+
+        [Fact]
+        public void ConvertStudents_Null_ThrowsArgumentNullException()
+        {
+            Assert.Throws<System.ArgumentNullException>(() => converter.ConvertStudents(null));
+        }
+    }
+}
+Remember that the Assert.Throws<T> method from Xunit is used to validate that the correct exception is thrown. In this case, we are verifying that an ArgumentNullException is thrown if a null value is provided to the ConvertStudents method.
